@@ -1,0 +1,49 @@
+{
+    "name": "mvdnbrk/laravel-documentation",
+    "description": "Laravel Documentation",
+    "keywords": [
+        "laravel",
+        "docs",
+        "documentation"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark van den Broek",
+            "email": "mvdnbrk@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "illuminate/support": "^7.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^4.1",
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mvdnbrk\\Documentation\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mvdnbrk\\Documentation\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mvdnbrk\\Documentation\\DocumentationServiceProvider"
+            ]
+        }
+    }
+}
