@@ -3,7 +3,6 @@
 namespace Mvdnbrk\Documentation;
 
 use Illuminate\Support\ServiceProvider;
-use Mvdnbrk\Documentation\Documentation;
 
 class DocumentationServiceProvider extends ServiceProvider
 {
