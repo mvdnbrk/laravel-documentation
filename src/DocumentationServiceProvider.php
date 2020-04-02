@@ -3,6 +3,7 @@
 namespace Mvdnbrk\Documentation;
 
 use Illuminate\Support\ServiceProvider;
+use Mvdnbrk\Documentation\Documentation;
 
 class DocumentationServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,8 @@ class DocumentationServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->configure();
+
+        $this->app->alias(Documentation::class, 'documentation');
     }
 
     protected function configure(): void

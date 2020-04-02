@@ -44,7 +44,10 @@
         "laravel": {
             "providers": [
                 "Mvdnbrk\\Documentation\\DocumentationServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Documentation": "Mvdnbrk\\Documentation\\Facades\\Documentation"
+            }
         }
     }
 }
