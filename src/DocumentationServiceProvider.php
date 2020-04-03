@@ -9,6 +9,7 @@ class DocumentationServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->offerPublishing();
+        $this->registerCommands();
     }
 
     public function register(): void
@@ -31,6 +32,15 @@ class DocumentationServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/documentation.php' => config_path('documentation.php'),
             ], 'documentation-config');
+        }
+    }
+
+    protected function registerCommands(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                Console\Commands\InstallCommand::class,
+            ]);
         }
     }
 }
