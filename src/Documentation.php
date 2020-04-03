@@ -34,7 +34,7 @@ class Documentation
             return null;
         }
 
-        return (new ParsedownExtra)->text($this->files->get($path));;
+        return (new ParsedownExtra)->text($this->files->get($path));
     }
 
     public function isExcludedPage(string $page): bool
