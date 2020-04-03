@@ -1,0 +1,3 @@
+# Index
+
+- [Dummy]({{version}}/dummy)
