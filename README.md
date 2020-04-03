@@ -16,6 +16,12 @@ You can install the package via composer:
 composer require mvdnbrk/laravel-documentation
 ```
 
+To publish the configuration file you may run the following `artisan` command:
+
+```bash
+php artisan vendor:publish --tag="documentation-config"
+```
+
 ## Testing
 
 ``` bash
