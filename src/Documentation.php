@@ -52,12 +52,12 @@ class Documentation
         );
     }
 
-    public function defaultPage()
+    public function defaultPage(): string
     {
         return config('documentation.default_page');
     }
 
-    public function defaultVersion()
+    public function defaultVersion(): ?string
     {
         return config('documentation.default_version');
     }
