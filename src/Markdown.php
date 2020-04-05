@@ -13,7 +13,7 @@ class Markdown
     {
         $environment = Environment::createCommonMarkEnvironment();
 
-        $environment->addExtension(new GithubFlavoredMarkdownExtension());
+        $environment->addExtension(new GithubFlavoredMarkdownExtension);
 
         $converter = new CommonMarkConverter([
             'allow_unsafe_links' => false,
