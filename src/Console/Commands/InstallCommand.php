@@ -8,7 +8,7 @@ class InstallCommand extends Command
 {
     protected $signature = 'documentation:install';
 
-    protected $description = 'Install the documantation';
+    protected $description = 'Install the documentation';
 
     public function handle()
     {
