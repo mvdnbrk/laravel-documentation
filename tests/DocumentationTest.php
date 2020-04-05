@@ -67,6 +67,14 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function getting_the_default_version_does_not_return_a_non_existent_version()
+    {
+        config(['documentation.default_version' => 'does-not-exist']);
+
+        $this->assertSame('1.0', $this->documentation->defaultVersion());
+    }
+
+    /** @test */
     public function it_can_get_the_default_page()
     {
         $this->assertEquals('installation', $this->documentation->defaultPage());

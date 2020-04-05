@@ -58,7 +58,9 @@ class Documentation
 
     public function defaultVersion(): ?string
     {
-        if ($version = config('documentation.default_version')) {
+        $version = config('documentation.default_version');
+
+        if (! is_null($version) && $this->isVersion($version)) {
             return $version;
         }
 
