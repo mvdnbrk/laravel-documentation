@@ -35,6 +35,33 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function it_can_determine_if_a_section_exists()
+    {
+        $this->assertTrue($this->documentation->sectionExists('1.0', 'dummy'));
+        $this->assertFalse($this->documentation->sectionExists('1.0', 'does-not-exist'));
+    }
+
+    /** @test */
+    public function it_can_replace_a_version_placeholder()
+    {
+        $this->assertEquals('9.9', $this->documentation->replaceVersionPlaceholders('9.9', '{{version}}'));
+    }
+
+    /** @test */
+    public function it_can_get_the_index_page()
+    {
+        $this->assertEquals('<p><a href="1.0/dummy">Dummy</a></p>', $this->documentation->getIndex('1.0'));
+    }
+
+    /** @test */
+    public function it_returns_null_when_the_index_page_does_not_exist()
+    {
+        config(['documentation.index_page' => 'does-not-exist']);
+
+        $this->assertNull($this->documentation->getIndex('1.0'));
+    }
+
+    /** @test */
     public function it_can_get_the_path()
     {
         $this->assertEquals('1.0/test-page.md', $this->documentation->path('1.0', 'test-page'));

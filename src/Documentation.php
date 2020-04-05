@@ -28,13 +28,28 @@ class Documentation
             return null;
         }
 
-        $path = $this->path($version, $page);
-
-        if (! $this->files->exists($path)) {
+        if (! $this->sectionExists($version, $page)) {
             return null;
         }
 
-        return (new ParsedownExtra)->text($this->files->get($path));
+        return (new ParsedownExtra)->text($this->files->get(
+            $this->path($version, $page)
+        ));
+    }
+
+    public function getIndex(string $version): ?string
+    {
+        $indexPage = config('documentation.index_page');
+
+        if (! $this->sectionExists($version, $indexPage)) {
+            return null;
+        }
+
+        return (new ParsedownExtra)->text(
+            $this->replaceVersionPlaceHolders($version, $this->files->get(
+                $this->path($version, $indexPage)
+            ))
+        );
     }
 
     public function isExcludedPage(string $page): bool
@@ -47,6 +62,18 @@ class Documentation
     public function path(string $version, string $page): string
     {
         return "{$version}/{$page}.md";
+    }
+
+    public function replaceVersionPlaceholders($version, $content)
+    {
+        return str_replace('{{version}}', $version, $content);
+    }
+
+    public function sectionExists($version, $page): bool
+    {
+        return $this->files->exists(
+            $this->path($version, $page)
+        );
     }
 
     public function excludedPages(): Collection
