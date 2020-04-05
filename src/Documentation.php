@@ -74,7 +74,7 @@ class Documentation
         );
     }
 
-    public function isVersion(string $version)
+    public function isVersion(string $version): bool
     {
         return $this->versions()->contains($version);
     }
@@ -84,7 +84,7 @@ class Documentation
         return "{$version}/{$page}.md";
     }
 
-    public function replaceVersionPlaceholders($version, $content)
+    public function replaceVersionPlaceholders($version, $content): string
     {
         return str_replace('{{version}}', $version, $content);
     }
