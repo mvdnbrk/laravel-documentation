@@ -52,6 +52,11 @@ class Documentation
         );
     }
 
+    public function defaultPage()
+    {
+        return config('documentation.default_page');
+    }
+
     public function defaultVersion()
     {
         return config('documentation.default_version');

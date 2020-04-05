@@ -43,6 +43,12 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function it_can_get_the_default_page()
+    {
+        $this->assertEquals('installation', $this->documentation->defaultPage());
+    }
+
+    /** @test */
     public function it_can_determine_if_a_section_exists()
     {
         $this->assertTrue($this->documentation->sectionExists('1.0', 'dummy'));
