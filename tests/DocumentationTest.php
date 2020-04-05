@@ -73,6 +73,17 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function it_falls_back_to_the_master_version_if_master_is_configured_as_the_default_verison()
+    {
+        config(['documentation.versions' => [
+            'master',
+        ]]);
+        config(['documentation.default_version' => 'master']);
+
+        $this->assertSame('master', $this->documentation->defaultVersion());
+    }
+
+    /** @test */
     public function getting_the_default_version_does_not_return_a_non_existent_version()
     {
         config(['documentation.default_version' => 'does-not-exist']);
