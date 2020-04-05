@@ -48,7 +48,7 @@ class DocumentationTest extends TestCase
 
         config(['documentation.default_version' => '9.9']);
 
-        $this->assertEquals('9.9', $this->documentation->defaultVersion());
+        $this->assertSame('9.9', $this->documentation->defaultVersion());
     }
 
     /** @test */
@@ -67,13 +67,13 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_replace_a_version_placeholder()
     {
-        $this->assertEquals('9.9', $this->documentation->replaceVersionPlaceholders('9.9', '{{version}}'));
+        $this->assertSame('9.9', $this->documentation->replaceVersionPlaceholders('9.9', '{{version}}'));
     }
 
     /** @test */
     public function it_can_get_the_index_page()
     {
-        $this->assertEquals('<p><a href="1.0/dummy">Dummy</a></p>', $this->documentation->getIndex('1.0'));
+        $this->assertSame('<p><a href="1.0/dummy">Dummy</a></p>', $this->documentation->getIndex('1.0'));
     }
 
     /** @test */
@@ -87,13 +87,13 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_the_path()
     {
-        $this->assertEquals('1.0/test-page.md', $this->documentation->path('1.0', 'test-page'));
+        $this->assertSame('1.0/test-page.md', $this->documentation->path('1.0', 'test-page'));
     }
 
     /** @test */
     public function it_can_get_a_page()
     {
-        $this->assertEquals('<h1>Dummy</h1>', $this->documentation->get('1.0', 'dummy'));
+        $this->assertSame('<h1>Dummy</h1>', $this->documentation->get('1.0', 'dummy'));
     }
 
     /** @test */
