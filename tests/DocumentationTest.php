@@ -44,11 +44,15 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_the_default_version()
     {
-        $this->assertNull($this->documentation->defaultVersion());
-
         config(['documentation.default_version' => '9.9']);
 
         $this->assertSame('9.9', $this->documentation->defaultVersion());
+    }
+
+    /** @test */
+    public function it_falls_back_to_the_first_version_if_default_version_is_not_configured()
+    {
+        $this->assertSame('1.0', $this->documentation->defaultVersion());
     }
 
     /** @test */

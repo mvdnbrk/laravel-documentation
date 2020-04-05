@@ -58,7 +58,11 @@ class Documentation
 
     public function defaultVersion(): ?string
     {
-        return config('documentation.default_version');
+        if ($version = config('documentation.default_version')) {
+            return $version;
+        }
+
+        return $this->versions()->first();
     }
 
     public function isExcludedPage(string $page): bool
