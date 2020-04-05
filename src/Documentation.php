@@ -52,6 +52,11 @@ class Documentation
         );
     }
 
+    public function defaultVersion()
+    {
+        return config('documentation.default_version');
+    }
+
     public function isExcludedPage(string $page): bool
     {
         return $this->excludedPages()->contains(

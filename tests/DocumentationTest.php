@@ -35,6 +35,14 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function it_can_get_the_default_version()
+    {
+        config(['documentation.default_version' => '9.9']);
+
+        $this->assertEquals('9.9', $this->documentation->defaultVersion());
+    }
+
+    /** @test */
     public function it_can_determine_if_a_section_exists()
     {
         $this->assertTrue($this->documentation->sectionExists('1.0', 'dummy'));
