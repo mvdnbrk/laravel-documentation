@@ -69,6 +69,11 @@ class Documentation
         );
     }
 
+    public function isVersion(string $version)
+    {
+        return $this->versions()->contains($version);
+    }
+
     public function path(string $version, string $page): string
     {
         return "{$version}/{$page}.md";
