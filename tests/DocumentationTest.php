@@ -44,14 +44,20 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_the_default_version()
     {
-        config(['documentation.default_version' => '9.9']);
+        config(['documentation.versions' => [
+            '2.0',
+            '1.0',
+        ]]);
+        config(['documentation.default_version' => '1.0']);
 
-        $this->assertSame('9.9', $this->documentation->defaultVersion());
+        $this->assertSame('1.0', $this->documentation->defaultVersion());
     }
 
     /** @test */
     public function it_falls_back_to_the_first_version_if_default_version_is_not_configured()
     {
+        config(['documentation.default_version' => null]);
+
         $this->assertSame('1.0', $this->documentation->defaultVersion());
     }
 
@@ -72,6 +78,15 @@ class DocumentationTest extends TestCase
         config(['documentation.default_version' => 'does-not-exist']);
 
         $this->assertSame('1.0', $this->documentation->defaultVersion());
+    }
+
+    /** @test */
+    public function getting_the_default_version_returns_null_when_versions_and_default_version_are_not_configured()
+    {
+        config(['documentation.versions' => []]);
+        config(['documentation.default_version' => null]);
+
+        $this->assertNull($this->documentation->defaultVersion());
     }
 
     /** @test */
