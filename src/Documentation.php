@@ -31,7 +31,7 @@ class Documentation
             return null;
         }
 
-        return (new Markdown)->parse($this->files->get(
+        return Markdown::parse($this->files->get(
             $this->path($version, $page)
         ));
     }
@@ -44,7 +44,7 @@ class Documentation
             return null;
         }
 
-        return (new Markdown)->parse(
+        return Markdown::parse(
             $this->replaceVersionPlaceHolders($version, $this->files->get(
                 $this->path($version, $indexPage)
             ))

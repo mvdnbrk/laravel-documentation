@@ -8,7 +8,7 @@ use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 
 class Markdown
 {
-    public function parse(string $text): string
+    public static function parse(string $text): string
     {
         $environment = Environment::createCommonMarkEnvironment();
 
