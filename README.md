@@ -10,7 +10,7 @@
 
 ## Installation
 
-You can install the package via composer:
+You may use composer to install this package into your Laravel project:
 
 ```bash
 composer require mvdnbrk/laravel-documentation
