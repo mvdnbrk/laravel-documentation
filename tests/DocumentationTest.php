@@ -17,6 +17,20 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function versions_get_sorted_in_opposite_alphabetical_order()
+    {
+        config(['documentation.versions' => [
+            'a',
+            'z',
+        ]]);
+
+        $this->assertEquals([
+            'z',
+            'a',
+        ], $this->documentation->versions()->all());
+    }
+
+    /** @test */
     public function it_can_get_the_excluded_pages()
     {
         $this->assertInstanceOf(Collection::class, $this->documentation->excludedPages());

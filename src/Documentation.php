@@ -105,8 +105,8 @@ class Documentation
 
     public function versions(): Collection
     {
-        return new Collection(
-            config('documentation.versions')
-        );
+        return (new Collection(config('documentation.versions')))
+            ->sortDesc()
+            ->values();
     }
 }
