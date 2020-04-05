@@ -6,7 +6,6 @@ use Illuminate\Contracts\Filesystem\Factory;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use ParsedownExtra;
 
 class Documentation
 {
@@ -32,7 +31,7 @@ class Documentation
             return null;
         }
 
-        return (new ParsedownExtra)->text($this->files->get(
+        return Markdown::parse($this->files->get(
             $this->path($version, $page)
         ));
     }
@@ -45,7 +44,7 @@ class Documentation
             return null;
         }
 
-        return (new ParsedownExtra)->text(
+        return Markdown::parse(
             $this->replaceVersionPlaceHolders($version, $this->files->get(
                 $this->path($version, $indexPage)
             ))
