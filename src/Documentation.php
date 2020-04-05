@@ -62,7 +62,7 @@ class Documentation
             return $version;
         }
 
-        return $this->versions()->first();
+        return $this->versions()->reject('master')->first();
     }
 
     public function isExcludedPage(string $page): bool

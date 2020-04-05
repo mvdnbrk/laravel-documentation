@@ -56,6 +56,17 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function it_does_not_fall_back_to_the_master_version_if_default_version_is_not_configured()
+    {
+        config(['documentation.versions' => [
+            'master',
+            '1.0',
+        ]]);
+
+        $this->assertSame('1.0', $this->documentation->defaultVersion());
+    }
+
+    /** @test */
     public function it_can_get_the_default_page()
     {
         $this->assertEquals('installation', $this->documentation->defaultPage());
