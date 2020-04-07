@@ -29,7 +29,7 @@ abstract class TestCase extends Orchestra
 
         $config->set('documentation.storage.disk', 'docs');
 
-        $config->set('documentation.versions', [
+        $config->set('documentation.versions.published', [
             '1.0',
         ]);
     }

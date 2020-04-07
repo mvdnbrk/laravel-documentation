@@ -19,7 +19,7 @@ class DocumentationTest extends TestCase
     /** @test */
     public function versions_get_sorted_in_opposite_alphabetical_order()
     {
-        config(['documentation.versions' => [
+        config(['documentation.versions.published' => [
             'a',
             'z',
         ]]);
@@ -36,6 +36,7 @@ class DocumentationTest extends TestCase
         $this->assertInstanceOf(Collection::class, $this->documentation->excludedPages());
 
         $this->assertEquals([
+            'index',
             'readme',
         ], $this->documentation->excludedPages()->all());
     }
@@ -49,6 +50,12 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
+    public function the_index_page_is_an_exluded_page_by_default()
+    {
+        $this->assertTrue($this->documentation->isExcludedPage('index'));
+    }
+
+    /** @test */
     public function it_can_determine_if_a_version_exists()
     {
         $this->assertTrue($this->documentation->isVersion('1.0'));
@@ -58,11 +65,11 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_the_default_version()
     {
-        config(['documentation.versions' => [
+        config(['documentation.versions.published' => [
             '2.0',
             '1.0',
         ]]);
-        config(['documentation.default_version' => '1.0']);
+        config(['documentation.versions.default' => '1.0']);
 
         $this->assertSame('1.0', $this->documentation->defaultVersion());
     }
@@ -70,7 +77,7 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_falls_back_to_the_first_version_if_default_version_is_not_configured()
     {
-        config(['documentation.default_version' => null]);
+        config(['documentation.versions.default' => null]);
 
         $this->assertSame('1.0', $this->documentation->defaultVersion());
     }
@@ -78,7 +85,7 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_does_not_fall_back_to_the_master_version_if_default_version_is_not_configured()
     {
-        config(['documentation.versions' => [
+        config(['documentation.versions.published' => [
             'master',
             '1.0',
         ]]);
@@ -89,10 +96,10 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_falls_back_to_the_master_version_if_master_is_configured_as_the_default_verison()
     {
-        config(['documentation.versions' => [
+        config(['documentation.versions.published' => [
             'master',
         ]]);
-        config(['documentation.default_version' => 'master']);
+        config(['documentation.versions.default' => 'master']);
 
         $this->assertSame('master', $this->documentation->defaultVersion());
     }
@@ -100,7 +107,7 @@ class DocumentationTest extends TestCase
     /** @test */
     public function getting_the_default_version_does_not_return_a_non_existent_version()
     {
-        config(['documentation.default_version' => 'does-not-exist']);
+        config(['documentation.versions.default' => 'does-not-exist']);
 
         $this->assertSame('1.0', $this->documentation->defaultVersion());
     }
@@ -108,8 +115,8 @@ class DocumentationTest extends TestCase
     /** @test */
     public function getting_the_default_version_returns_null_when_versions_and_default_version_are_not_configured()
     {
-        config(['documentation.versions' => []]);
-        config(['documentation.default_version' => null]);
+        config(['documentation.versions.published' => []]);
+        config(['documentation.versions.default' => null]);
 
         $this->assertNull($this->documentation->defaultVersion());
     }
@@ -142,7 +149,7 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_returns_null_when_the_index_page_does_not_exist()
     {
-        config(['documentation.index_page' => 'does-not-exist']);
+        config(['documentation.pages.table_of_contents' => 'does-not-exist']);
 
         $this->assertNull($this->documentation->getIndex('1.0'));
     }
@@ -175,7 +182,7 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_determine_which_versions_contains_a_page()
     {
-        config(['documentation.versions' => [
+        config(['documentation.versions.published' => [
             '2.0',
             '1.0',
         ]]);

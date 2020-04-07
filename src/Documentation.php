@@ -38,7 +38,7 @@ class Documentation
 
     public function getIndex(string $version): ?string
     {
-        $indexPage = config('documentation.index_page');
+        $indexPage = config('documentation.pages.table_of_contents');
 
         if (! $this->sectionExists($version, $indexPage)) {
             return null;
@@ -53,12 +53,12 @@ class Documentation
 
     public function defaultPage(): string
     {
-        return config('documentation.default_page');
+        return config('documentation.pages.default');
     }
 
     public function defaultVersion(): ?string
     {
-        $version = config('documentation.default_version');
+        $version = config('documentation.versions.default');
 
         if (! is_null($version) && $this->isVersion($version)) {
             return $version;
@@ -98,14 +98,15 @@ class Documentation
 
     public function excludedPages(): Collection
     {
-        return new Collection(
-            config('documentation.excluded_pages')
-        );
+        return (new Collection(config('documentation.pages.exclude')))
+            ->merge(config('documentation.pages.table_of_contents'))
+            ->sort()
+            ->values();
     }
 
     public function versions(): Collection
     {
-        return (new Collection(config('documentation.versions')))
+        return (new Collection(config('documentation.versions.published')))
             ->sortDesc()
             ->values();
     }
