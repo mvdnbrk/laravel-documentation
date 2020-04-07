@@ -58,7 +58,7 @@ class Documentation
 
     public function defaultVersion(): ?string
     {
-        $version = config('documentation.default_version');
+        $version = config('documentation.versions.default');
 
         if (! is_null($version) && $this->isVersion($version)) {
             return $version;
@@ -105,7 +105,7 @@ class Documentation
 
     public function versions(): Collection
     {
-        return (new Collection(config('documentation.versions')))
+        return (new Collection(config('documentation.versions.published')))
             ->sortDesc()
             ->values();
     }

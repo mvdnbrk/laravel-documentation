@@ -3,10 +3,11 @@
 return [
 
     'versions' => [
-        //
+        'default' => env('DOCUMENTATION_DEFAULT_VERSION', null),
+        'published' => [
+            //
+        ]
     ],
-
-    'default_version' => env('DOCUMENTATION_DEFAULT_VERSION', null),
 
     'default_page' => env('DOCUMENTATION_DEFAULT_PAGE', 'installation'),
 
