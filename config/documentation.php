@@ -3,15 +3,15 @@
 return [
 
     'versions' => [
-        'default' => env('DOCUMENTATION_DEFAULT_VERSION', null),
+        'default' => null,
         'published' => [
             //
         ]
     ],
 
     'pages' => [
-        'default' => env('DOCUMENTATION_DEFAULT_PAGE', 'installation'),
-        'index' => env('DOCUMENTATION_INDEX', 'index'),
+        'default' => 'installation',
+        'index' => 'index',
         'exclude' => [
             'readme',
         ]
