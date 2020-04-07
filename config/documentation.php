@@ -6,7 +6,7 @@ return [
         'default' => null,
         'published' => [
             //
-        ]
+        ],
     ],
 
     'pages' => [
@@ -14,7 +14,7 @@ return [
         'index' => 'index',
         'exclude' => [
             'readme',
-        ]
+        ],
     ],
 
     'storage' => [
