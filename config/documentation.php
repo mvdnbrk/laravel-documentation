@@ -3,7 +3,7 @@
 return [
 
     'versions' => [
-        'default' => null,
+        'default' => '',
         'published' => [
             //
         ],
