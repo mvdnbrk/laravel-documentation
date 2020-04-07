@@ -9,16 +9,16 @@ return [
         ]
     ],
 
-    'default_page' => env('DOCUMENTATION_DEFAULT_PAGE', 'installation'),
-
-    'index_page' => env('DOCUMENTATION_INDEX', 'index'),
+    'pages' => [
+        'default' => env('DOCUMENTATION_DEFAULT_PAGE', 'installation'),
+        'index' => env('DOCUMENTATION_INDEX', 'index'),
+        'exclude' => [
+            'readme',
+        ]
+    ],
 
     'storage' => [
         'disk' => null,
-    ],
-
-    'excluded_pages' => [
-        'readme',
     ],
 
 ];

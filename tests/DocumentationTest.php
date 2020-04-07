@@ -142,7 +142,7 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_returns_null_when_the_index_page_does_not_exist()
     {
-        config(['documentation.index_page' => 'does-not-exist']);
+        config(['documentation.pages.index' => 'does-not-exist']);
 
         $this->assertNull($this->documentation->getIndex('1.0'));
     }
