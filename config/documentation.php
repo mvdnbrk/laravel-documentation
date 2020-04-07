@@ -6,7 +6,7 @@ return [
         'default' => env('DOCUMENTATION_DEFAULT_VERSION', null),
         'published' => [
             //
-        ]
+        ],
     ],
 
     'pages' => [
@@ -14,7 +14,7 @@ return [
         'index' => env('DOCUMENTATION_INDEX', 'index'),
         'exclude' => [
             'readme',
-        ]
+        ],
     ],
 
     'storage' => [
