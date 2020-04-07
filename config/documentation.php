@@ -24,11 +24,10 @@ return [
     | Pages.
     |--------------------------------------------------------------------------
     |
-    | Here you may specify which page may be served a the default page.
-    | The index page is where you have of the "table of contents"
-    | for your documentation. This page is excluded from viewing
-    | by default. You may also specify additional pages to be
-    | excluded from viewing.
+    | Here you may specify which page may be served as the default page
+    | and where your "table of contents" of your documentations lives.
+    | You may also specify which pages are excluded from viewing.
+    | The "table of contents" is excluded by default.
     |
     */
 
