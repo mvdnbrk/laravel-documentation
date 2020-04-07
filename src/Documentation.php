@@ -98,9 +98,10 @@ class Documentation
 
     public function excludedPages(): Collection
     {
-        return new Collection(
-            config('documentation.pages.exclude')
-        );
+        return (new Collection(config('documentation.pages.exclude')))
+            ->merge(config('documentation.pages.index'))
+            ->sort()
+            ->values();
     }
 
     public function versions(): Collection

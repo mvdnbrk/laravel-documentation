@@ -36,6 +36,7 @@ class DocumentationTest extends TestCase
         $this->assertInstanceOf(Collection::class, $this->documentation->excludedPages());
 
         $this->assertEquals([
+            'index',
             'readme',
         ], $this->documentation->excludedPages()->all());
     }
@@ -46,6 +47,12 @@ class DocumentationTest extends TestCase
         $this->assertFalse($this->documentation->isExcludedPage('test-page'));
         $this->assertTrue($this->documentation->isExcludedPage('readme'));
         $this->assertTrue($this->documentation->isExcludedPage('README'));
+    }
+
+    /** @test */
+    public function the_index_page_is_an_exluded_page_by_default()
+    {
+        $this->assertTrue($this->documentation->isExcludedPage('index'));
     }
 
     /** @test */
