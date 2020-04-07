@@ -171,4 +171,19 @@ class DocumentationTest extends TestCase
     {
         $this->assertNull($this->documentation->get('1.0', 'readme'));
     }
+
+    /** @test */
+    public function it_can_determine_which_versions_contains_a_page()
+    {
+        config(['documentation.versions' => [
+            '2.0',
+            '1.0',
+        ]]);
+
+        $this->assertInstanceOf(Collection::class, $this->documentation->versionsContainingPage('dummy'));
+
+        $this->assertEquals([
+            '1.0',
+        ], $this->documentation->versionsContainingPage('dummy')->all());
+    }
 }

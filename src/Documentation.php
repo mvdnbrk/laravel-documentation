@@ -109,4 +109,11 @@ class Documentation
             ->sortDesc()
             ->values();
     }
+
+    public function versionsContainingPage(string $page): Collection
+    {
+        return collect($this->versions())
+            ->filter(fn(string $version): bool => $this->sectionExists($version, $page))
+            ->values();
+    }
 }
