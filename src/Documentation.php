@@ -38,7 +38,7 @@ class Documentation
 
     public function getIndex(string $version): ?string
     {
-        $indexPage = config('documentation.pages.index');
+        $indexPage = config('documentation.pages.table_of_contents');
 
         if (! $this->sectionExists($version, $indexPage)) {
             return null;
@@ -99,7 +99,7 @@ class Documentation
     public function excludedPages(): Collection
     {
         return (new Collection(config('documentation.pages.exclude')))
-            ->merge(config('documentation.pages.index'))
+            ->merge(config('documentation.pages.table_of_contents'))
             ->sort()
             ->values();
     }

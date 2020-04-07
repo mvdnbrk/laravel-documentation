@@ -33,8 +33,8 @@ return [
     */
 
     'pages' => [
+        'table_of_contents' => 'index',
         'default' => 'installation',
-        'index' => 'index',
         'exclude' => [
             'readme',
         ],
