@@ -11,8 +11,20 @@ class DocumentationTest extends TestCase
     {
         $this->assertInstanceOf(Collection::class, $this->documentation->versions());
 
-        $this->assertEquals([
+        $this->assertSame([
             '1.0',
+        ], $this->documentation->versions()->all());
+    }
+
+    /** @test */
+    public function it_converts_versions_with_an_integer_to_a_string()
+    {
+        config(['documentation.versions.published' => [
+            1,
+        ]]);
+
+        $this->assertSame([
+            '1',
         ], $this->documentation->versions()->all());
     }
 
@@ -24,7 +36,7 @@ class DocumentationTest extends TestCase
             'z',
         ]]);
 
-        $this->assertEquals([
+        $this->assertSame([
             'z',
             'a',
         ], $this->documentation->versions()->all());
