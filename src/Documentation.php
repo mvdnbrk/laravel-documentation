@@ -10,14 +10,11 @@ use Illuminate\Support\Str;
 
 class Documentation
 {
-    protected Factory $filesystem;
     protected Filesystem $files;
 
     public function __construct(Factory $filesystem)
     {
-        $this->filesystem = $filesystem;
-
-        $this->files = $this->filesystem->disk(
+        $this->files = $filesystem->disk(
             config('documentation.storage.disk')
         );
     }
