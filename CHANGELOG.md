@@ -13,4 +13,4 @@ All notable changes to `laravel-documentation` will be documented in this file.
 ## v1.0.0 - 2020-04-07
 
 [Unreleased]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.1.0...HEAD
-[v1.1.0]: https://github.com/mvdnbrk/laravel-model-expires/compare/v1.0.0...v1.1.0
+[v1.1.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.0.0...v1.1.0
