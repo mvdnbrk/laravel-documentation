@@ -84,12 +84,12 @@ class Documentation
         return "{$version}/{$page}.md";
     }
 
-    public function replaceVersionPlaceholders($version, $content): string
+    public function replaceVersionPlaceholders(string $version, string $content): string
     {
         return str_replace('{{version}}', $version, $content);
     }
 
-    public function sectionExists($version, $page): bool
+    public function sectionExists(string $version, string $page): bool
     {
         return $this->files->exists(
             $this->path($version, $page)
