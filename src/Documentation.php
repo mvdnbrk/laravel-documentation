@@ -108,6 +108,7 @@ class Documentation
     public function versions(): Collection
     {
         return (new Collection(config('documentation.versions.published')))
+            ->map(fn ($value) => (string) $value)
             ->sortDesc()
             ->values();
     }
