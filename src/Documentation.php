@@ -22,10 +22,10 @@ class Documentation
         );
     }
 
-    public function get(string $version, string $page): ?HtmlString
+    public function get(string $version, string $page): HtmlString
     {
         if ($this->isExcludedPage($page)) {
-            return null;
+            return new HtmlString('');
         }
 
         if (! $this->sectionExists($version, $page)) {

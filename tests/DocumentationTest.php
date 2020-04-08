@@ -183,9 +183,10 @@ class DocumentationTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_null_for_an_excluded_page()
+    public function it_returns_an_empty_html_string_for_an_excluded_page()
     {
-        $this->assertNull($this->documentation->get('1.0', 'readme'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->get('1.0', 'readme'));
+        $this->assertEmpty($this->documentation->get('1.0', 'readme')->toHtml());
     }
 
     /** @test */
