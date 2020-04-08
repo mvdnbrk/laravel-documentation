@@ -4,7 +4,7 @@ All notable changes to `laravel-documentation` will be documented in this file.
 
 ## [Unreleased]
 
-## v1.1.0 - 2020-04-08
+## [v1.1.0] - 2020-04-08
 
 ### Changed
 - Versions specified as an integer are converted to a string. [`#8`](https://github.com/mvdnbrk/laravel-documentation/pull/8)
