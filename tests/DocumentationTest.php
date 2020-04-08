@@ -3,6 +3,7 @@
 namespace Mvdnbrk\Documentation\Tests;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\HtmlString;
 
 class DocumentationTest extends TestCase
 {
@@ -143,7 +144,9 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_the_index_page()
     {
-        $this->assertSame('<p><a href="1.0/dummy">Dummy</a></p>', $this->documentation->getIndex('1.0'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->getIndex('1.0'));
+
+        $this->assertSame('<p><a href="1.0/dummy">Dummy</a></p>', $this->documentation->getIndex('1.0')->toHtml());
     }
 
     /** @test */
@@ -163,7 +166,9 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_a_page()
     {
-        $this->assertSame('<h1>Dummy</h1>', $this->documentation->get('1.0', 'dummy'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->get('1.0', 'dummy'));
+
+        $this->assertSame('<h1>Dummy</h1>', $this->documentation->get('1.0', 'dummy')->toHtml());
     }
 
     /** @test */
