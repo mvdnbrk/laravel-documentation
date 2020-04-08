@@ -5,6 +5,7 @@ namespace Mvdnbrk\Documentation;
 use Illuminate\Contracts\Filesystem\Factory;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
 class Documentation
@@ -21,14 +22,14 @@ class Documentation
         );
     }
 
-    public function get(string $version, string $page): ?string
+    public function get(string $version, string $page): HtmlString
     {
         if ($this->isExcludedPage($page)) {
-            return null;
+            return new HtmlString('');
         }
 
         if (! $this->sectionExists($version, $page)) {
-            return null;
+            return new HtmlString('');
         }
 
         return Markdown::parse($this->files->get(
@@ -36,12 +37,12 @@ class Documentation
         ));
     }
 
-    public function getIndex(string $version): ?string
+    public function getIndex(string $version): HtmlString
     {
         $indexPage = config('documentation.pages.table_of_contents');
 
         if (! $this->sectionExists($version, $indexPage)) {
-            return null;
+            return new HtmlString('');
         }
 
         return Markdown::parse(

@@ -3,6 +3,7 @@
 namespace Mvdnbrk\Documentation\Tests;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\HtmlString;
 
 class DocumentationTest extends TestCase
 {
@@ -143,15 +144,18 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_the_index_page()
     {
-        $this->assertSame('<p><a href="1.0/dummy">Dummy</a></p>', $this->documentation->getIndex('1.0'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->getIndex('1.0'));
+
+        $this->assertSame('<p><a href="1.0/dummy">Dummy</a></p>', $this->documentation->getIndex('1.0')->toHtml());
     }
 
     /** @test */
-    public function it_returns_null_when_the_index_page_does_not_exist()
+    public function it_returns_an_empty_html_string_when_the_index_page_does_not_exist()
     {
         config(['documentation.pages.table_of_contents' => 'does-not-exist']);
 
-        $this->assertNull($this->documentation->getIndex('1.0'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->getIndex('1.0'));
+        $this->assertEmpty($this->documentation->getIndex('1.0')->toHtml());
     }
 
     /** @test */
@@ -163,20 +167,26 @@ class DocumentationTest extends TestCase
     /** @test */
     public function it_can_get_a_page()
     {
-        $this->assertSame('<h1>Dummy</h1>', $this->documentation->get('1.0', 'dummy'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->get('1.0', 'dummy'));
+
+        $this->assertSame('<h1>Dummy</h1>', $this->documentation->get('1.0', 'dummy')->toHtml());
     }
 
     /** @test */
-    public function it_returns_null_for_a_page_that_does_not_exist()
+    public function it_returns_an_empty_html_string_for_a_page_that_does_not_exist()
     {
-        $this->assertNull($this->documentation->get('1.0', 'non-existent'));
-        $this->assertNull($this->documentation->get('invalid-version', 'dummy'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->get('1.0', 'non-existent'));
+        $this->assertEmpty($this->documentation->get('1.0', 'non-existent')->toHtml());
+
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->get('999', 'dummy'));
+        $this->assertEmpty($this->documentation->get('999', 'dummy')->toHtml());
     }
 
     /** @test */
-    public function it_returns_null_for_an_excluded_page()
+    public function it_returns_an_empty_html_string_for_an_excluded_page()
     {
-        $this->assertNull($this->documentation->get('1.0', 'readme'));
+        $this->assertInstanceOf(HtmlString::class, $this->documentation->get('1.0', 'readme'));
+        $this->assertEmpty($this->documentation->get('1.0', 'readme')->toHtml());
     }
 
     /** @test */
