@@ -138,6 +138,12 @@ class DocumentationTest extends TestCase
     public function it_can_get_the_default_page()
     {
         $this->assertEquals('installation', $this->documentation->defaultPage());
+
+        config(['documentation.pages' => []]);
+        $this->assertSame('', $this->documentation->defaultPage());
+
+        config(['documentation.pages.default' => null]);
+        $this->assertSame('', $this->documentation->defaultPage());
     }
 
     /** @test */

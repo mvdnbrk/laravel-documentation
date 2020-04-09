@@ -51,7 +51,7 @@ class Documentation
 
     public function defaultPage(): string
     {
-        return config('documentation.pages.default');
+        return (string) config('documentation.pages.default');
     }
 
     public function defaultVersion(): ?string
