@@ -139,9 +139,6 @@ class DocumentationTest extends TestCase
     {
         $this->assertEquals('installation', $this->documentation->defaultPage());
 
-        config(['documentation.pages' => []]);
-        $this->assertSame('', $this->documentation->defaultPage());
-
         config(['documentation.pages.default' => null]);
         $this->assertSame('', $this->documentation->defaultPage());
     }
