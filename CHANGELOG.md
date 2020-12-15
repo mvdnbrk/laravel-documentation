@@ -4,6 +4,11 @@ All notable changes to `laravel-documentation` will be documented in this file.
 
 ## [Unreleased]
 
+## [v1.3.0] - 2020-12-15
+
+### Added
+- Support for PHP 8. [`#10`](https://github.com/mvdnbrk/laravel-documentation/pull/10)
+
 ## [v1.2.0] - 2020-08-07
 
 ### Added
@@ -18,6 +23,7 @@ All notable changes to `laravel-documentation` will be documented in this file.
 
 ## v1.0.0 - 2020-04-07
 
-[Unreleased]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.3.0...HEAD
+[v1.3.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.1.0...v1.2.0
 [v1.1.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.0.0...v1.1.0
