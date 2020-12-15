@@ -22,7 +22,7 @@ php artisan vendor:publish --tag="documentation-config"
 
 ## Testing
 
-``` bash
+```bash
 composer test
 ```
 
