@@ -21,8 +21,8 @@
         "league/commonmark": "^1.5"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.12 || ^6.7",
-        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^5.0 || ^6.",
+        "phpunit/phpunit": "^9.4",
         "symfony/var-dumper": "^5.0"
     },
     "config": {
