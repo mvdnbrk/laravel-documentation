@@ -1,26 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mvdnbrk\Documentation;
 
 use Illuminate\Support\HtmlString;
-use League\CommonMark\CommonMarkConverter;
-use League\CommonMark\Environment;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
+use League\CommonMark\MarkdownConverter;
 
 class Markdown
 {
     public static function parse(string $text): HtmlString
     {
-        $environment = Environment::createCommonMarkEnvironment();
+        $environment = new Environment([
+            'allow_unsafe_links' => false,
+        ]);
 
+        $environment->addExtension(new CommonMarkCoreExtension);
         $environment->addExtension(new GithubFlavoredMarkdownExtension);
 
-        $converter = new CommonMarkConverter([
-            'allow_unsafe_links' => false,
-        ], $environment);
+        $converter = new MarkdownConverter($environment);
 
         return new HtmlString(
-            trim($converter->convertToHtml($text))
+            trim($converter->convert($text)->getContent())
         );
     }
 }
