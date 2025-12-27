@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mvdnbrk\Documentation;
 
 use Illuminate\Support\ServiceProvider;

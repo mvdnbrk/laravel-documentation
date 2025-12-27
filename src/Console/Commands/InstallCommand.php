@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mvdnbrk\Documentation\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -10,11 +12,13 @@ class InstallCommand extends Command
 
     protected $description = 'Install the documentation';
 
-    public function handle()
+    public function handle(): int
     {
         $this->comment('Publishing Documentation Configuration...');
         $this->callSilent('vendor:publish', ['--tag' => 'documentation-config']);
 
         $this->info('Documentation installed successfully.');
+
+        return self::SUCCESS;
     }
 }

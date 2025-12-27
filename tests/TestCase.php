@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mvdnbrk\Documentation\Tests;
 
+use Illuminate\Foundation\Application;
 use Mvdnbrk\Documentation\Documentation;
 use Mvdnbrk\Documentation\DocumentationServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -17,7 +20,7 @@ abstract class TestCase extends Orchestra
         $this->documentation = app(Documentation::class);
     }
 
-    /** @param  \Illuminate\Foundation\Application  $app */
+    /** @param Application $app */
     protected function getEnvironmentSetUp($app): void
     {
         $config = $app->get('config');
@@ -34,7 +37,7 @@ abstract class TestCase extends Orchestra
         ]);
     }
 
-    /** @param  \Illuminate\Foundation\Application  $app */
+    /** @param Application $app */
     protected function getPackageProviders($app): array
     {
         return [
