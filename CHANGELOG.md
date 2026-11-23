@@ -9,6 +9,10 @@ All notable changes to `laravel-documentation` will be documented in this file.
 - Added support for PHP 8.5.
 - Added support for PHPUnit 12.
 
+### Removed
+- Dropped support for Laravel 10 and 11.
+- Dropped support for PHPUnit 10.
+
 ## [v2.0.0] - 2024-12-27
 
 ### Changed
