@@ -6,6 +6,11 @@
 [![Code style][ico-code-style]][link-code-style]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+## Requirements
+
+- PHP 8.2 or higher
+- Laravel 12 or 13 (Laravel 13 requires PHP 8.3 or higher)
+
 ## Installation
 
 You may use composer to install this package into your Laravel project:
