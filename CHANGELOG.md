@@ -4,6 +4,8 @@ All notable changes to `laravel-documentation` will be documented in this file.
 
 ## [Unreleased]
 
+## [v3.0.0] - 2026-11-23
+
 ### Added
 - Added support for Laravel 13.
 - Added support for PHP 8.5.
@@ -13,7 +15,7 @@ All notable changes to `laravel-documentation` will be documented in this file.
 - Dropped support for Laravel 10 and 11.
 - Dropped support for PHPUnit 10.
 
-## [v2.0.0] - 2024-12-27
+## [v2.0.0] - 2025-12-27
 
 ### Changed
 - Requires PHP 8.2 or higher.
@@ -45,7 +47,8 @@ All notable changes to `laravel-documentation` will be documented in this file.
 
 ## v1.0.0 - 2020-04-07
 
-[Unreleased]: https://github.com/mvdnbrk/laravel-documentation/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/laravel-documentation/compare/v3.0.0...HEAD
+[v3.0.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v2.0.0...v3.0.0
 [v2.0.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.3.0...v2.0.0
 [v1.3.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/mvdnbrk/laravel-documentation/compare/v1.1.0...v1.2.0
