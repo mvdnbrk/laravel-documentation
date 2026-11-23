@@ -40,7 +40,7 @@ Before submitting a pull request:
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](https://pear.php.net/package/PHP_CodeSniffer).
+- **Laravel coding style** - Code style is checked by [StyleCI](https://styleci.io/) with the `laravel` preset. You can apply it locally with [Laravel Pint](https://laravel.com/docs/pint).
 
 - **Add tests!** - Your patch won't be accepted if it doesn't have tests.
 
@@ -48,7 +48,7 @@ If the project maintainer has any additional requirements, you will find them li
 
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](https://semver.org/). Randomly breaking public APIs is not an option.
 
-- **Create feature branches** - Don't ask us to pull from your master branch.
+- **Create feature branches** - Don't ask us to pull from your main branch.
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 
