@@ -40,7 +40,7 @@ Before submitting a pull request:
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **Laravel coding style** - Code style is checked by [StyleCI](https://styleci.io/) with the `laravel` preset. You can apply it locally with [Laravel Pint](https://laravel.com/docs/pint).
+- **Laravel coding style** - Follow the Laravel coding style. You can apply it locally with [Laravel Pint](https://laravel.com/docs/pint).
 
 - **Add tests!** - Your patch won't be accepted if it doesn't have tests.
 
